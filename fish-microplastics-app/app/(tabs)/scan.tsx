@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 
-export default function TabTwoScreen() {
+export default function TabThreeScreen() {
   return (
     <ThemedText type="title">Scanner Page</ThemedText>
   );
