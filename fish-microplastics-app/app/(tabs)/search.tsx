@@ -4,6 +4,7 @@ import { Dropdown } from "react-native-element-dropdown";
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import { Circle } from 'react-native-maps';
+import fishFarms from "../../data/fishfarms.json";
 
 
 export default function App() {
@@ -96,20 +97,22 @@ export default function App() {
 
       </View>
       <View>
-      <MapView style={styles.map} showsUserLocation={true} ref={mapRef}>
-          {country_value && (() => {
-            const selected = country_data.find(
-              (c) => c.value === country_value
-            );
-            return (
+        <MapView style={styles.map} showsUserLocation={true} ref={mapRef}>
+          {fishFarms
+            .filter((farm) => {
+              const matchesCountry = !country_value || farm.country.toLowerCase() === country_value.toLowerCase();
+              const matchesFish = !fish_value || farm.species.toLowerCase() === fish_value.replace('_', ' ').toLowerCase();
+              return matchesCountry && matchesFish;
+            })
+            .map((farm) => (
               <Circle
-                center={selected.coords}
-                radius={50000}
+                key={farm.id}
+                center={{ latitude: farm.latitude, longitude: farm.longitude }}
+                radius={farm.level * 1000}
+                fillColor={getFillColor(farm.level)}
                 strokeColor="rgba(0,0,0,0.2)"
-                fillColor={getFillColor(selected.level)}
               />
-            );
-          })()}
+            ))}
         </MapView>
       </View>
     </View>
