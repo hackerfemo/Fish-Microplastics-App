@@ -1,107 +1,173 @@
-import * as React from 'react';
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
-import { Card, Title, Paragraph, Text } from 'react-native-paper';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { Card, Text, Button, IconButton } from 'react-native-paper';
+import Collapsible from 'react-native-collapsible';
+import { useRouter } from 'expo-router';
+import Constants from 'expo-constants';
 
-export default function HomeScreen({ navigation }) {
+// Sample product names to pick randomly
+const products = [
+  "Atlantic Salmon",
+  "Pacific Tuna",
+  "Indian Mackerel",
+  "Sea Bass",
+  "Yellowfin Tuna",
+];
+
+const infoCards = [
+  {
+    title: '🌊 Microplastic Data',
+    content:
+      'We use ocean datasets on microplastic pollution to identify regions with higher contamination risk.',
+  },
+  {
+    title: '🐟 Fish Species',
+    content:
+      'Choose species like salmon, sea bass, or mackerel to see how they may accumulate plastics in their environments.',
+  },
+  {
+    title: '🗺️ Interactive Map',
+    content:
+      'Explore fish farms and catch areas on a map overlaid with pollution data to understand regional risks.',
+  },
+  {
+    title: '📱 Product Scanner',
+    content:
+      'Soon you’ll be able to scan the barcode of packaged fish from the supermarket and instantly see estimated microplastic contamination levels based on its origin.',
+    note: 'Work in progress – stay tuned!',
+  },
+];
+
+export default function HomeScreen() {
+  const router = useRouter();
+  const [randomProduct, setRandomProduct] = useState('');
+  const [activeCardIndex, setActiveCardIndex] = useState(null);
+
+  useEffect(() => {
+    const pickRandom = products[Math.floor(Math.random() * products.length)];
+    setRandomProduct(pickRandom);
+  }, []);
+
+  const toggleCard = (index) => {
+    setActiveCardIndex(activeCardIndex === index ? null : index);
+  };
+
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 100 }}>
-      {/* Header Image */}
-      <Image
-        source={{ uri: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80' }}
-        // Healthy fish underwater, calm ocean scene
-        style={styles.headerImage}
-      />
-
-      {/* Intro */}
-      <View style={styles.intro}>
-        <Text variant="titleMedium" style={styles.title}>Microplastic Risk in Fish</Text>
-        <Text variant="bodyMedium" style={styles.paragraph}>
-          This app combines global ocean microplastic data with fish catch locations
-          to estimate the risk of plastic contamination in seafood.
-          Select a fish and its source region to explore contamination risks.
-        </Text>
+    <View style={styles.container}>
+      {/* Top Bar */}
+      <View style={styles.topBar}>
+        <Image
+          source={require('../../assets/images/logo.png' )} // Replace with your logo url or local asset
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Text style={styles.topBarText}>PureFish</Text>
       </View>
 
-      {/* Cards */}
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text variant="titleMedium">🌊 Microplastic Data</Text>
-          <Text variant="bodyMedium">
-            We use ocean datasets on microplastic pollution to identify regions
-            with higher contamination risk.
-          </Text>
-        </Card.Content>
-      </Card>
+      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+        {/* Buttons */}
+        <View style={styles.buttonContainer}>
+          <Button
+            mode="contained"
+            onPress={() => router.push('/scan')}
+            style={styles.actionButton}
+            icon="barcode-scan"
+            contentStyle={{ flexDirection: 'row-reverse' }}
+          >
+            Scan a Product
+          </Button>
 
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text variant="titleMedium">🐟 Fish Species</Text>
-          <Text variant="bodyMedium">
-            Choose species like salmon, sea bass, or mackerel to see how they
-            may accumulate plastics in their environments.
-          </Text>
-        </Card.Content>
-      </Card>
+          <Button
+            mode="outlined"
+            onPress={() => router.push('/search')}
+            style={styles.actionButton}
+            icon="magnify"
+            contentStyle={{ flexDirection: 'row-reverse' }}
+          >
+            Search Suppliers
+          </Button>
+        </View>
 
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text variant="titleMedium">🗺️ Interactive Map</Text>
-          <Text variant="bodyMedium">
-            Explore fish farms and catch areas on a map overlaid with
-            pollution data to understand regional risks.
-          </Text>
-        </Card.Content>
-      </Card>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text variant="titleMedium">📱 Product Scanner (Coming Soon)</Text>
-          <Text variant="bodyMedium">
-            Soon you’ll be able to scan the barcode of packaged fish from the supermarket
-            and instantly see estimated microplastic contamination levels based on its origin.
-          </Text>
-          <Text variant="bodySmall" style={{ fontStyle: 'italic', color: '#888', marginTop: 4 }}>
-            Work in progress – stay tuned!
-          </Text>
-        </Card.Content>
-      </Card>
+        {/* Info Cards */}
+        {infoCards.map((card, i) => (
+          <Card key={i} style={styles.card}>
+            <TouchableOpacity onPress={() => toggleCard(i)}>
+              <Card.Title
+                title={card.title}
+                right={props => (
+                  <IconButton
+                    {...props}
+                    icon={activeCardIndex === i ? 'chevron-up' : 'chevron-down'}
+                  />
+                )}
+              />
+            </TouchableOpacity>
 
-
-      {/* CTA */}
-    </ScrollView>
+            <Collapsible collapsed={activeCardIndex !== i}>
+              <Card.Content>
+                <Text style={styles.cardContent}>{card.content}</Text>
+                {card.note && (
+                  <Text style={styles.cardNote}>{card.note}</Text>
+                )}
+              </Card.Content>
+            </Collapsible>
+          </Card>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAF9F6',
+    backgroundColor: '#eef2f5',
   },
-  headerImage: {
-    width: '100%',
-    height: 200,
+  
+topBar: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  backgroundColor: '#3778bd',
+  paddingVertical: 16,
+  paddingHorizontal: 16,
+  paddingTop: Constants.statusBarHeight + 16, 
+  justifyContent: 'center',
+},
+  logo: {
+    width: 36,
+    height: 36,
+    marginRight: 12,
   },
-  intro: {
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#003366',
-    marginBottom: 8,
-  },
-  paragraph: {
+  topBarText: {
+    color: '#fff',
+    fontWeight: '600',
     fontSize: 16,
-    color: '#333',
-    lineHeight: 22,
+  },
+  buttonContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+    paddingHorizontal: 20,
+  },
+  actionButton: {
+    flex: 1,
+    marginHorizontal: 10,
+    marginVertical: 10,
   },
   card: {
-    margin: 12,
+    marginHorizontal: 16,
+    marginVertical: 8,
     borderRadius: 12,
     elevation: 3,
   },
-  button: {
-    margin: 16,
-    padding: 8,
-    borderRadius: 8,
+  cardContent: {
+    fontSize: 15,
+    color: '#333',
+    marginBottom: 8,
+  },
+  cardNote: {
+    fontSize: 13,
+    fontStyle: 'italic',
+    color: '#666',
   },
 });
