@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -26,6 +26,12 @@ export default function App() {
 
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [startRegion, setRegion] = useState({
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 10,  // zoom level (smaller = more zoomed in)
+    longitudeDelta: 10,
+  });
 
   useEffect(() => {
     (async () => {
@@ -37,6 +43,13 @@ export default function App() {
 
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
+
+      setRegion({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 10,  // zoomed-in start
+        longitudeDelta: 10,
+      });
     })();
   }, []);
 
@@ -63,8 +76,30 @@ export default function App() {
 
   return (
 
-    <View style={{ flexDirection: 'column', flex: 1 }}>
-      <View style={styles.container}>
+    <View style={{ flex: 1 }}>
+      {startRegion.latitude !== 0 && (
+        <MapView style={styles.map} initialRegion={startRegion} showsUserLocation={true} ref={mapRef}>
+          {fish_value && country_value && fishFarms
+            .filter((farm) =>
+              farm.country.toLowerCase() === country_value.toLowerCase() &&
+              farm.species.toLowerCase() === fish_value.replace('_', ' ').toLowerCase()
+            )
+            .map((farm) => (
+              <Circle
+                key={farm.id}
+                center={{ latitude: farm.latitude, longitude: farm.longitude }}
+                radius={farm.level * 1000}
+                fillColor={getFillColor(farm.level)}
+                strokeColor="rgba(0,0,0,0.2)"
+              />
+            ))}
+        </MapView>
+      )}
+      <View style={styles.overlay}>
+        <Text style={styles.explanation}>
+          Select the fish and country
+        </Text>
+        <View style={styles.dropdownRow}>
         {/* Dropdown at the top */}
         <Dropdown
           style={styles.dropdown}
@@ -94,26 +129,7 @@ export default function App() {
             handleCountryChange(country_item);
           }}
         />
-
-      </View>
-      <View>
-        <MapView style={styles.map} showsUserLocation={true} ref={mapRef}>
-          {fishFarms
-            .filter((farm) => {
-              const matchesCountry = !country_value || farm.country.toLowerCase() === country_value.toLowerCase();
-              const matchesFish = !fish_value || farm.species.toLowerCase() === fish_value.replace('_', ' ').toLowerCase();
-              return matchesCountry && matchesFish;
-            })
-            .map((farm) => (
-              <Circle
-                key={farm.id}
-                center={{ latitude: farm.latitude, longitude: farm.longitude }}
-                radius={farm.level * 1000}
-                fillColor={getFillColor(farm.level)}
-                strokeColor="rgba(0,0,0,0.2)"
-              />
-            ))}
-        </MapView>
+        </View>
       </View>
     </View>
   );
@@ -126,13 +142,39 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     flexDirection: 'row',
   },
+  overlay: {
+    position: 'absolute',
+    top: 40,
+    left: 10,
+    right: 10,
+    backgroundColor: 'rgba(255,255,255,0.95)',
+    borderRadius: 12,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 5, // shadow on Android
+  },
+  explanation: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 8,
+    textAlign: 'center',
+    color: '#333',
+  },
+  dropdownRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   dropdown: {
+    flex: 1,
     height: 50,
-    width: '50%',
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 8,
+    backgroundColor: '#fff',
   },
   placeholderStyle: {
     fontSize: 16,
