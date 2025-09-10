@@ -1,281 +1,314 @@
 [
-    {
-      "id": 1,
-      "name": "Loch Fyne Salmon Farm",
-      "country": "Scotland",
-      "latitude": 56.1581,
-      "longitude": -5.1333,
-      "species": "Salmon",
-      "level": 35
-    },
-    {
-      "id": 2,
-      "name": "Skjerstadfjord Trout Farm",
-      "country": "Norway",
-      "latitude": 67.2806,
-      "longitude": 14.8258,
-      "species": "Rainbow Trout",
-      "level": 55
-    },
-    {
-      "id": 3,
-      "name": "Hardangerfjord Salmon Farm",
-      "country": "Norway",
-      "latitude": 60.3654,
-      "longitude": 6.2239,
-      "species": "Atlantic Salmon",
-      "level": 70
-    },
-    {
-      "id": 4,
-      "name": "Orkney Islands Salmon Farm",
-      "country": "Scotland",
-      "latitude": 59.0,
-      "longitude": -3.0,
-      "species": "Salmon",
-      "level": 25
-    },
-    {
-      "id": 5,
-      "name": "Cornish Coast Sea Bass Farm",
-      "country": "England",
-      "latitude": 50.3763,
-      "longitude": -4.1427,
-      "species": "Sea Bass",
-      "level": 45
-    },
-    {
-      "id": 6,
-      "name": "Solent Sea Bass Farm",
-      "country": "England",
-      "latitude": 50.8000,
-      "longitude": -1.1000,
-      "species": "Sea Bass",
-      "level": 38
-    },
-    {
-      "id": 7,
-      "name": "Isle of Skye Salmon Farm",
-      "country": "Scotland",
-      "latitude": 57.5,
-      "longitude": -6.2,
-      "species": "Salmon",
-      "level": 42
-    },
-    {
-      "id": 8,
-      "name": "Lofoten Cod Farm",
-      "country": "Norway",
-      "latitude": 68.2,
-      "longitude": 14.6,
-      "species": "Cod",
-      "level": 60
-    },
-    {
-      "id": 9,
-      "name": "Sognefjord Trout Farm",
-      "country": "Norway",
-      "latitude": 61.2,
-      "longitude": 6.5,
-      "species": "Rainbow Trout",
-      "level": 50
-    },
-    {
-      "id": 10,
-      "name": "Aberdeenshire Salmon Farm",
-      "country": "Scotland",
-      "latitude": 57.3,
-      "longitude": -2.4,
-      "species": "Salmon",
-      "level": 48
-    },
-    {
-      "id": 11,
-      "name": "Tyne Estuary Mackerel Farm",
-      "country": "England",
-      "latitude": 54.9631,
-      "longitude": -1.6086,
-      "species": "Mackerel",
-      "level": 36
-    },
-    {
-      "id": 12,
-      "name": "Cumbria Trout Farm",
-      "country": "England",
-      "latitude": 54.45,
-      "longitude": -3.05,
-      "species": "Rainbow Trout",
-      "level": 41
-    },
-    {
-      "id": 13,
-      "name": "Shetland Salmon Farm",
-      "country": "Scotland",
-      "latitude": 60.15,
-      "longitude": -1.15,
-      "species": "Atlantic Salmon",
-      "level": 55
-    },
-    {
-      "id": 14,
-      "name": "Finnmark Salmon Farm",
-      "country": "Norway",
-      "latitude": 70.0,
-      "longitude": 24.0,
-      "species": "Salmon",
-      "level": 62
-    },
-    {
-      "id": 15,
-      "name": "Dorset Sea Bass Farm",
-      "country": "England",
-      "latitude": 50.7107,
-      "longitude": -2.4417,
-      "species": "Sea Bass",
-      "level": 40
-    },
-    {
-      "id": 16,
-      "name": "Trøndelag Salmon Farm",
-      "country": "Norway",
-      "latitude": 63.5,
-      "longitude": 10.4,
-      "species": "Salmon",
-      "level": 58
-    },
-    {
-      "id": 17,
-      "name": "Outer Hebrides Trout Farm",
-      "country": "Scotland",
-      "latitude": 57.8,
-      "longitude": -7.0,
-      "species": "Rainbow Trout",
-      "level": 44
-    },
-    {
-      "id": 18,
-      "name": "Northumberland Mackerel Farm",
-      "country": "England",
-      "latitude": 55.2,
-      "longitude": -1.6,
-      "species": "Mackerel",
-      "level": 32
-    },
-    {
-      "id": 19,
-      "name": "Tromsø Salmon Farm",
-      "country": "Norway",
-      "latitude": 69.6496,
-      "longitude": 18.956,
-      "species": "Atlantic Salmon",
-      "level": 67
-    },
-    {
-      "id": 20,
-      "name": "Argyll Salmon Farm",
-      "country": "Scotland",
-      "latitude": 56.4,
-      "longitude": -5.5,
-      "species": "Salmon",
-      "level": 30
-    },
-    {
-      "id": 21,
-      "name": "Kent Mackerel Farm",
-      "country": "England",
-      "latitude": 51.2787,
-      "longitude": 1.08,
-      "species": "Mackerel",
-      "level": 29
-    },
-    {
-      "id": 22,
-      "name": "Oslofjord Cod Farm",
-      "country": "Norway",
-      "latitude": 59.9,
-      "longitude": 10.75,
-      "species": "Cod",
-      "level": 52
-    },
-    {
-      "id": 23,
-      "name": "Fife Trout Farm",
-      "country": "Scotland",
-      "latitude": 56.3,
-      "longitude": -3.1,
-      "species": "Rainbow Trout",
-      "level": 37
-    },
-    {
-      "id": 24,
-      "name": "Sørlandet Salmon Farm",
-      "country": "Norway",
-      "latitude": 58.2,
-      "longitude": 8.0,
-      "species": "Salmon",
-      "level": 48
-    },
-    {
-      "id": 25,
-      "name": "Norfolk Sea Bass Farm",
-      "country": "England",
-      "latitude": 52.6,
-      "longitude": 1.3,
-      "species": "Sea Bass",
-      "level": 33
-    },
-    {
-      "id": 26,
-      "name": "Yorkshire Salmon Farm",
-      "country": "England",
-      "latitude": 54.0,
-      "longitude": -1.2,
-      "species": "Salmon",
-      "level": 42
-    },
-    {
-      "id": 27,
-      "name": "Bodø Salmon Farm",
-      "country": "Norway",
-      "latitude": 67.28,
-      "longitude": 14.4,
-      "species": "Salmon",
-      "level": 63
-    },
-    {
-      "id": 28,
-      "name": "Ayrshire Mackerel Farm",
-      "country": "Scotland",
-      "latitude": 55.5,
-      "longitude": -4.6,
-      "species": "Mackerel",
-      "level": 34
-    },
-    {
-      "id": 29,
-      "name": "Devon Sea Bass Farm",
-      "country": "England",
-      "latitude": 50.7,
-      "longitude": -3.5,
-      "species": "Sea Bass",
-      "level": 39
-    },
-    {
-      "id": 30,
-      "name": "Helgeland Cod Farm",
-      "country": "Norway",
-      "latitude": 65.9,
-      "longitude": 12.4,
-      "species": "Cod",
-      "level": 57
-    },
-    {
-      "id": 31,
-      "name": "Wester Ross Salmon Farm",
-      "country": "Scotland",
-      "latitude": 57.9,
-      "longitude": -5.6,
-      "species": "Salmon",
-      "level": 40
-    }  
+  {
+    "id": 1,
+    "name": "Mowi Kyleakin",
+    "country": "Scotland",
+    "latitude": 57.288011,
+    "longitude": -5.812775,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.566124
+  },
+  {
+    "id": 2,
+    "name": "Mowi Lochailort",
+    "country": "Scotland",
+    "latitude": 56.872656,
+    "longitude": -5.682384,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.560092
+  },
+  {
+    "id": 3,
+    "name": "Mowi Loch Leven",
+    "country": "Scotland",
+    "latitude": 56.689538,
+    "longitude": -5.138613,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.558027
+  },
+  {
+    "id": 4,
+    "name": "Mowi Rinmore Point",
+    "country": "Ireland",
+    "latitude": 55.263199,
+    "longitude": -7.687614,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.533648
+  },
+  {
+    "id": 5,
+    "name": "Marin Harvest Loch Eireasort",
+    "country": "Scotland",
+    "latitude": 58.099229,
+    "longitude": -6.507228,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.577367
+  },
+  {
+    "id": 6,
+    "name": "Wester Ross Fisheries",
+    "country": "Scotland",
+    "latitude": 57.938201,
+    "longitude": -5.189308,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.576579
+  },
+  {
+    "id": 7,
+    "name": "Scottish Sea Farms Loch Creran",
+    "country": "Scotland",
+    "latitude": 56.519804,
+    "longitude": -5.39367,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.555185
+  },
+  {
+    "id": 8,
+    "name": "The Scottish Salmon co Loch Na Keal",
+    "country": "Scotland",
+    "latitude": 56.47605,
+    "longitude": -6.13797,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.553623
+  },
+  {
+    "id": 9,
+    "name": "Glenarm Organic Salmon",
+    "country": "Northern Ireland",
+    "latitude": 54.9,
+    "longitude": -5.9,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.531463
+  },
+  {
+    "id": 10,
+    "name": "Loch Duart Ltd",
+    "country": "Scotland",
+    "latitude": 58.3,
+    "longitude": -5.1,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.582372
+  },
+  {
+    "id": 11,
+    "name": "Scottish Sea Farms Score Holms Shorebase",
+    "country": "Scotland",
+    "latitude": 60.1,
+    "longitude": -1.2,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.614106
+  },
+  {
+    "id": 12,
+    "name": "Stolt Sea Farm AS",
+    "country": "Norway",
+    "latitude": 58.274262,
+    "longitude": 6.881275,
+    "species": "Turbot",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.596351
+  },
+  {
+    "id": 14,
+    "name": "Greigh Seafood Rogaland Stavanger",
+    "country": "Norway",
+    "latitude": 58.971692,
+    "longitude": 5.758944,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.603672
+  },
+  {
+    "id": 15,
+    "name": "Greigh Seafood Rogaland Sandnes",
+    "country": "Norway",
+    "latitude": 58.858316,
+    "longitude": 5.748422,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.623675
+  },
+  {
+    "id": 16,
+    "name": "Greigh Seafood Rogaland Bokn",
+    "country": "Norway",
+    "latitude": 59.196004,
+    "longitude": 5.474392,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.608371
+  },
+  {
+    "id": 17,
+    "name": "Greigh Seafood Rogaland Hjelmeland",
+    "country": "Norway",
+    "latitude": 59.235221,
+    "longitude": 6.168395,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.609804
+  },
+  {
+    "id": 18,
+    "name": "Greigh Seafood Rogaland Kvitsøy",
+    "country": "Norway",
+    "latitude": 59.059038,
+    "longitude": 5.3793756,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.606213
+  },
+  {
+    "id": 19,
+    "name": "Buholomen Fish Farm",
+    "country": "Norway",
+    "latitude": 60.021559,
+    "longitude": 5.077765,
+    "species": "Salmon",
+    "raised": "farm",
+    "ocean": "Atlantic Ocean ",
+    "depth": "10",
+    "mplevel": 2.620192
+  },
+  {
+    "id": 20,
+    "name": "Green Organic Fish Farm",
+    "country": "South Africa",
+    "latitude": -33.028826,
+    "longitude": 17.997302,
+    "species": "Tilapia",
+    "raised": "farm",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 2.947008
+  },
+  {
+    "id": 21,
+    "name": "Lilac Holding Tilapia Fish Farms",
+    "country": "South Africa",
+    "latitude": -33.581012,
+    "longitude": 26.947572,
+    "species": "Tilapia",
+    "raised": "farm",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.383462
+  },
+  {
+    "id": 22,
+    "name": "False Bay Fishing",
+    "country": "South Africa",
+    "latitude": -34.636179,
+    "longitude": 18.680107,
+    "species": "Sardines",
+    "raised": "caught",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.144032
+  },
+  {
+    "id": 23,
+    "name": "Agulhas Fishing Co",
+    "country": "South Africa",
+    "latitude": -34.854133,
+    "longitude": 19.369303,
+    "species": "Sardines",
+    "raised": "caught",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.195992
+  },
+  {
+    "id": 24,
+    "name": "Struisbaai",
+    "country": "South Africa",
+    "latitude": -34.874595,
+    "longitude": 20.022226,
+    "species": "Sardines",
+    "raised": "caught",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.225758
+  },
+  {
+    "id": 25,
+    "name": "Still Bay",
+    "country": "South Africa",
+    "latitude": -34.761069,
+    "longitude": 21.593863,
+    "species": "Sardines",
+    "raised": "caught",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.28038
+  },
+  {
+    "id": 26,
+    "name": "Plettenberg Bay",
+    "country": "South Africa",
+    "latitude": -34.436821,
+    "longitude": 23.591571,
+    "species": "Sardines",
+    "raised": "caught",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.330987
+  },
+  {
+    "id": 27,
+    "name": "Chintsa",
+    "country": "South Africa",
+    "latitude": -32.8286,
+    "longitude": 28.134024,
+    "species": "Sardines",
+    "raised": "caught",
+    "ocean": "Indian Ocean",
+    "depth": "10",
+    "mplevel": 3.354957
+  }
 ]

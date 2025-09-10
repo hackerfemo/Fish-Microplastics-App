@@ -14,8 +14,10 @@ export default function SearchSuppliers() {
 
   const fish_data = [
     { label: "Salmon", value: "salmon" },
-    { label: "Sea Bass", value: "sea_bass" },
     { label: "Mackerel", value: "mackerel" },
+    { label: "Sardines", value: "sardines" },
+    { label: "Tilapia", value: "tilapia" },
+
   ];
 
   const country_data = [
@@ -24,13 +26,13 @@ export default function SearchSuppliers() {
     { label: "Wales", value: "wales", coords: { latitude: 52.1307, longitude: -3.7837 }, level: 20 },
     { label: "Northern Ireland", value: "northern_ireland", coords: { latitude: 54.7877, longitude: -6.4923 }, level: 20 },
     { label: "Norway", value: "norway", coords: { latitude: 60.472, longitude: 8.4689 }, level: 60 },
-    { label: "France", value: "france", coords: { latitude: 46.603354, longitude: 1.888334 }, level: 40 },
-    { label: "Germany", value: "germany", coords: { latitude: 51.1657, longitude: 10.4515 }, level: 40 },
-    { label: "Spain", value: "spain", coords: { latitude: 40.4637, longitude: -3.7492 }, level: 40 },
-    { label: "Italy", value: "italy", coords: { latitude: 41.8719, longitude: 12.5674 }, level: 40 },
-    { label: "United States", value: "united_states", coords: { latitude: 37.0902, longitude: -95.7129 }, level: 50 },
-    { label: "Canada", value: "canada", coords: { latitude: 56.1304, longitude: -106.3468 }, level: 50 },
-    { label: "Australia", value: "australia", coords: { latitude: -25.2744, longitude: 133.7751 }, level: 50 },
+    // { label: "France", value: "france", coords: { latitude: 46.603354, longitude: 1.888334 }, level: 40 },
+    // { label: "Germany", value: "germany", coords: { latitude: 51.1657, longitude: 10.4515 }, level: 40 },
+    // { label: "Spain", value: "spain", coords: { latitude: 40.4637, longitude: -3.7492 }, level: 40 },
+    // { label: "Italy", value: "italy", coords: { latitude: 41.8719, longitude: 12.5674 }, level: 40 },
+    // { label: "United States", value: "united_states", coords: { latitude: 37.0902, longitude: -95.7129 }, level: 50 },
+    // { label: "Canada", value: "canada", coords: { latitude: 56.1304, longitude: -106.3468 }, level: 50 },
+    // { label: "Australia", value: "australia", coords: { latitude: -25.2744, longitude: 133.7751 }, level: 50 },
     { label: "South Africa", value: "south_africa", coords: { latitude: -30.5595, longitude: 22.9375 }, level: 50 },
   ];
   
@@ -80,9 +82,11 @@ export default function SearchSuppliers() {
   };
 
   const getFillColor = (level) => {
-    if (level > 60) return "rgba(255,0,0,0.4)";
-    if (level > 40) return "rgba(255,165,0,0.4)";
-    return "rgba(0,128,0,0.4)";
+    if (level >= 3.3) return "rgba(255, 0, 0, 0.4)";      // Very High
+    if (level >= 2.7) return "rgba(255, 165, 0, 0.4)";    // High
+    if (level >= 1.6) return "rgba(255, 255, 0, 0.4)";    // Moderate
+    if (level >= 1.0) return "rgba(144, 238, 144, 0.4)";  // Low
+    return "rgba(0, 128, 0, 0.4)";                        // Very Low
   };
 
   const countryMapping = {
@@ -163,15 +167,15 @@ export default function SearchSuppliers() {
         >
           {fish_value && country_value && fishFarms
             .filter((farm) =>
-              farm.country.toLowerCase() === country_value.toLowerCase() &&
+              farm.country.toLowerCase() === country_value.replace('_', ' ').toLowerCase() &&
               farm.species.toLowerCase() === fish_value.replace('_', ' ').toLowerCase()
             )
             .map((farm) => (
               <Circle
                 key={farm.id}
                 center={{ latitude: farm.latitude, longitude: farm.longitude }}
-                radius={farm.level * 1000}
-                fillColor={getFillColor(farm.level)}
+                radius={36000}
+                fillColor={getFillColor(farm.mplevel)}
                 strokeColor="rgba(0,0,0,0.2)"
               />
             ))}
@@ -225,6 +229,7 @@ export default function SearchSuppliers() {
           </View>
         </View>
       </SafeAreaView>
+      
     </View>
   );
 }
