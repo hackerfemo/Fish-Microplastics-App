@@ -1,75 +1,107 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import * as React from 'react';
+import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import { Card, Title, Paragraph, Text } from 'react-native-paper';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 100 }}>
+      {/* Header Image */}
+      <Image
+        source={{ uri: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80' }}
+        // Healthy fish underwater, calm ocean scene
+        style={styles.headerImage}
+      />
+
+      {/* Intro */}
+      <View style={styles.intro}>
+        <Text variant="titleMedium" style={styles.title}>Microplastic Risk in Fish</Text>
+        <Text variant="bodyMedium" style={styles.paragraph}>
+          This app combines global ocean microplastic data with fish catch locations
+          to estimate the risk of plastic contamination in seafood.
+          Select a fish and its source region to explore contamination risks.
+        </Text>
+      </View>
+
+      {/* Cards */}
+      <Card style={styles.card}>
+        <Card.Content>
+          <Text variant="titleMedium">🌊 Microplastic Data</Text>
+          <Text variant="bodyMedium">
+            We use ocean datasets on microplastic pollution to identify regions
+            with higher contamination risk.
+          </Text>
+        </Card.Content>
+      </Card>
+
+      <Card style={styles.card}>
+        <Card.Content>
+          <Text variant="titleMedium">🐟 Fish Species</Text>
+          <Text variant="bodyMedium">
+            Choose species like salmon, sea bass, or mackerel to see how they
+            may accumulate plastics in their environments.
+          </Text>
+        </Card.Content>
+      </Card>
+
+      <Card style={styles.card}>
+        <Card.Content>
+          <Text variant="titleMedium">🗺️ Interactive Map</Text>
+          <Text variant="bodyMedium">
+            Explore fish farms and catch areas on a map overlaid with
+            pollution data to understand regional risks.
+          </Text>
+        </Card.Content>
+      </Card>
+      <Card style={styles.card}>
+        <Card.Content>
+          <Text variant="titleMedium">📱 Product Scanner (Coming Soon)</Text>
+          <Text variant="bodyMedium">
+            Soon you’ll be able to scan the barcode of packaged fish from the supermarket
+            and instantly see estimated microplastic contamination levels based on its origin.
+          </Text>
+          <Text variant="bodySmall" style={{ fontStyle: 'italic', color: '#888', marginTop: 4 }}>
+            Work in progress – stay tuned!
+          </Text>
+        </Card.Content>
+      </Card>
+
+
+      {/* CTA */}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: '#FAF9F6',
   },
-  stepContainer: {
-    gap: 8,
+  headerImage: {
+    width: '100%',
+    height: 200,
+  },
+  intro: {
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#003366',
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  paragraph: {
+    fontSize: 16,
+    color: '#333',
+    lineHeight: 22,
+  },
+  card: {
+    margin: 12,
+    borderRadius: 12,
+    elevation: 3,
+  },
+  button: {
+    margin: 16,
+    padding: 8,
+    borderRadius: 8,
   },
 });
